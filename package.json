@@ -1,0 +1,30 @@
+{
+  "name": "generator-meaningfuljs",
+  "version": "1.0.0",
+  "description": "A scaffolding tool for MeaningfulJS.",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "files": [
+    "app"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThirstyHead/generator-meaningfuljs.git"
+  },
+  "author": "Scott Davis <scott@thirstyhead.com>",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "fs-extra": "~0.20.1",
+    "git-config": "~0.0.6",
+    "lodash": "~3.9.3",
+    "yeoman-generator": "~0.20.1"
+  },
+  "devDependencies": {
+    "mocha": "~2.2.5"
+  }
+}
