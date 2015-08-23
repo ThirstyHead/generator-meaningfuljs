@@ -1,4 +1,4 @@
-fixScale = function(doc) {
+var fixScale = function(doc) {
 
 	var addEvent = 'addEventListener',
 	    type = 'gesturestart',
@@ -13,7 +13,7 @@ fixScale = function(doc) {
 
 	if ((meta = meta[meta.length - 1]) && addEvent in doc) {
 		fix();
-		scales = [.25, 1.6];
+		scales = [0.25, 1.6];
 		doc[addEvent](type, fix, true);
 	}
 
