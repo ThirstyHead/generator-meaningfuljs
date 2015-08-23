@@ -32,7 +32,7 @@ body {
 	color: #232323;
 	background-color: #FBFAF7;
 	margin: 0;
-	line-height: 1.8em;
+	/*line-height: 1.8em;*/
 	-webkit-font-smoothing: antialiased;
 
 }
@@ -43,7 +43,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol, table, dl {
-  margin:0 0 22px;
+  /*margin:0 0 22px;*/
+  margin:0 0 1em;
 }
 
 h1, h2, h3 {
