@@ -43,6 +43,16 @@
 
         <p>If you're an experienced MEAN stack developer, MeaningfulJS is a springboard for you to quickly customize and refine your way to production.</p>
 
+        <h2><a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+        <p>Here's what you need to have installed before getting started with MeaningfulJS:</p>
+        <ul>
+            <li><a href="https://nodejs.org/download/">NodeJS</a>: You'll need this to run the build scripts and the included Express web server</li>
+            <li><a href="https://www.mongodb.org/downloads">MongoDB</a>: You can mock out the persistence for a while in "development" mode, but you'll eventually need to save your user data somewhere in production</li>
+            <li><a href="http://bower.io/#install-bower">Bower</a>: Bower manages your client-side dependencies in <code>bower.json</code>; NPM (included with NodeJS) manages your server-side dependencies in <code>package.json</code></li>
+            <li><a href="http://gulpjs.com/">Gulp</a>: Your build script <code>gulpfile.js</code> is written in Gulp</li>
+        </ul>
+
         <h2><a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
         <p>The best way to get started with MeaningfulJS is to <a href="https://github.com/thirstyhead/generator-meaningfuljs">install the Yeoman generator</a> and let it guide your way. Once it's installed, spinning up a new MEAN app is as simple as:</p>
@@ -51,7 +61,7 @@
 $ yo meaningfuljs
 </pre></code>
 
-        <p>You can, of course, simply download a <a href="https://github.com/ThirstyHead/meaningfuljs/zipball/master">zipfile</a>, a <a href="https://github.com/ThirstyHead/meaningfuljs/tarball/master">tarball</a>, or clone the <a href="https://github.com/ThirstyHead/meaningfuljs">GitHub repo</a> and muscle through it on your own. If you choose this route, be sure that you have <a href="https://nodejs.org/download/">NodeJS installed</a> and then type:</p>
+        <p>You can, of course, simply download a <a href="https://github.com/ThirstyHead/meaningfuljs/zipball/master">zipfile</a>, a <a href="https://github.com/ThirstyHead/meaningfuljs/tarball/master">tarball</a>, or clone the <a href="https://github.com/ThirstyHead/meaningfuljs">GitHub repo</a> and muscle through it on your own. If you choose this route, don't forget to install the server-side and client-side dependencies by typing:</p>
 
 <code><pre>
 $ npm install
