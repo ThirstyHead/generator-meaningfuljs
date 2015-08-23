@@ -35,7 +35,9 @@
       <p>&nbsp;</p>
 
       <section>
-        <h2><a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+        <h2><a id="introduction"
+               class="anchor"
+               href="#introduction">Introduction</a></h2>
 
         <p>MeaningfulJS is a simple, sane MEAN stack.</p>
 
@@ -43,7 +45,9 @@
 
         <p>If you're an experienced MEAN stack developer, MeaningfulJS is a springboard for you to quickly customize and refine your way to production.</p>
 
-        <h2><a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+        <h2><a id="prerequisites"
+               class="anchor"
+               href="#prerequisites">Prerequisites</a></h2>
 
         <p>Here's what you need to have installed before getting started with MeaningfulJS:</p>
         <ul>
@@ -53,18 +57,51 @@
             <li><a href="http://gulpjs.com/">Gulp</a>: Your build script <code>gulpfile.js</code> is written in Gulp</li>
         </ul>
 
-        <h2><a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+        <h2><a id="getting-started"
+               class="anchor"
+               href="#getting-started">Getting Started</a></h2>
 
         <p>The best way to get started with MeaningfulJS is to <a href="https://github.com/thirstyhead/generator-meaningfuljs">install the Yeoman generator</a> and let it guide your way. Once it's installed, spinning up a new MEAN app is as simple as:</p>
 
 <code><pre>
+$ mkdir myapp
+$ cd myapp
 $ yo meaningfuljs
 </pre></code>
 
-        <p>You can, of course, simply download a <a href="https://github.com/ThirstyHead/meaningfuljs/zipball/master">zipfile</a>, a <a href="https://github.com/ThirstyHead/meaningfuljs/tarball/master">tarball</a>, or clone the <a href="https://github.com/ThirstyHead/meaningfuljs">GitHub repo</a> and muscle through it on your own. If you choose this route, don't forget to install the server-side and client-side dependencies by typing:</p>
+        <p>You can, of course, simply download a <a href="https://github.com/ThirstyHead/meaningfuljs/zipball/master">zipfile</a>, a <a href="https://github.com/ThirstyHead/meaningfuljs/tarball/master">tarball</a>, or clone the <a href="https://github.com/ThirstyHead/meaningfuljs">GitHub repo</a> and muscle through it on your own. If you choose this route, don't forget to install the server-side and client-side dependencies locally by typing:</p>
 
 <code><pre>
 $ npm install
+</pre></code>
+
+
+        <h2><a id="build-and-run"
+               class="anchor"
+               href="#build-and-run">Build and Run</a></h2>
+
+        <p>The <code>gulpfile.js</code> build script comes with several familiar tasks, including <code>clean</code>, <code>build</code>, and <code>run</code>. The easiest way to start your MEAN app and view it in a browser is to type:</p>
+
+<code><pre>
+$ gulp clean build
+$ gulp run
+</pre></code>
+
+        <p>If you type <code>gulp</code> without a task, you'll be presented with a list of available tasks:</p>
+<code><pre>
+$ gulp
+Using gulpfile ~/myapp/gulpfile.js
+
+Usage
+  gulp [TASK] [OPTIONS...]
+
+Available tasks
+  build    Builds runnable website (dev-mode)
+  clean    Deletes generated artifacts
+  default  *** Default task ***
+  dist     Builds production website (prod-mode)
+  help     Display this help text.
+  run      Runs website (dev-mode)
 </pre></code>
 
       </section>
