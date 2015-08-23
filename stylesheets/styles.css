@@ -254,9 +254,9 @@ a.header {
 	text-decoration: underline;
 }
 
-a.name {
+/*a.name {
 	white-space: nowrap;
-}
+}*/
 
 header ul {
   list-style:none;
