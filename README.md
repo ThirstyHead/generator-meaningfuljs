@@ -12,7 +12,7 @@ Once you have [NodeJS](https://nodejs.org/download/) and [Yeoman](http://yeoman.
 $ npm install -g generator-meaningfuljs
 ```
 
-## Usage
+## Usage - New App
 To scaffold out a new MeaningfulJS application, type the following and answer a few simple questions:
 
 ```
@@ -39,6 +39,31 @@ You can also type the appName to bypass the initial question:
 ```
 $ yo meaningfuljs myapp
 ```
+
+
+
+## Usage - New Component
+Once your application is scaffolded out, you can add new components easily. Type the following:
+
+```
+$ yo meaningfuljs:component
+
+===========================================
+Hi! Welcome to the MeaningfulJS generator.
+
+Your new component can be found here:
+/Users/scott/myapp/src/client/components
+===========================================
+
+? What would you like to call your component? mycomponent
+```
+You can also type the componentName to bypass the initial question:
+```
+$ yo meaningfuljs:component mycomponent
+```
+
+
+
 
 
 
