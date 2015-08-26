@@ -8,7 +8,11 @@
     "yeoman-generator"
   ],
   "files": [
-    "app"
+    "app",
+    ".gitignore",
+    ".jshintrc",
+    "generators",
+    "test"
   ],
   "engines": {
     "node": ">=0.12.0"
