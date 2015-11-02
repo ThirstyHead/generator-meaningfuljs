@@ -2,7 +2,6 @@
 var yeoman = require('yeoman-generator');
 var lodash = require('lodash');
 var fs = require('fs-extra');
-var lodash = require('lodash');
 var grasp = require('grasp');
 var cheerio = require('cheerio');
 

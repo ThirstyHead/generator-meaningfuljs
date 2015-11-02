@@ -3,7 +3,7 @@
   "version": "1.1.2",
   "description": "A scaffolding tool for MeaningfulJS.",
   "author": "Scott Davis <scott@thirstyhead.com>",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "keywords": [
     "yeoman-generator"
   ],
@@ -29,6 +29,7 @@
     "cheerio": "~0.19.0",
     "fs-extra": "~0.23.1",
     "git-config": "~0.0.6",
+    "grasp": "~0.3.0",
     "lodash": "~3.10.0",
     "yeoman-generator": "~0.20.3"
   },
