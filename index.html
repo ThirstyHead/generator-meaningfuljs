@@ -1,136 +1,413 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MeaningfulJS</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!-- Web Components / Polymer -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/paper-styles/color.html">
+    <link rel="import" href="bower_components/paper-styles/default-theme.html">
+    <link rel="import" href="bower_components/paper-styles/shadow.html">
+    <link rel="import" href="bower_components/paper-styles/typography.html">
+    <link rel="import" href="bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+    <link rel="import" href="bower_components/paper-card/paper-card.html">
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/iron-icons/social-icons.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <!-- <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html"> -->
+    <!-- <link rel="import" href="bower_components/paper-listbox/paper-listbox.html"> -->
+    <!-- <link rel="import" href="bower_components/paper-item/paper-item.html"> -->
+
+
+
+    <style>
+      html, body {
+        height: 100%;
+        width: 90%;
+        /*margin: 0;*/
+        margin: auto;
+      }
+
+      h2{
+        /*text-decoration: underline;*/
+        font-style: italic;
+      }
+
+      code pre{
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 1em;
+        padding-bottom: 0;
+        /*background-color: white;*/
+        background-color: #eee;
+      }
+
+      footer.page {
+        padding: 1em;
+        margin-left: 56px;
+        margin-right: 56px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;;
+      }
+
+      footer.page section {
+        flex-basis: 1;
+        margin-top: 2em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .card-header-actions{
+        padding: 1em;
+        margin-left: 56px;
+        margin-right: 56px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-header-actions span{
+        padding: 1em;
+      }
+
+      paper-scroll-header-panel {
+        height: 100%;
+      }
+
+      .coverart {
+        float: right;
+        padding: 1em;
+      }
+
+    </style>
+
+    <style is="custom-style">
+      :root {
+
+        --paper-toolbar-title: {
+          font-weight: bold;
+          font-size: 2em;
+          line-height: 1.5em;
+        }
+
+        --paper-card-content: {
+            margin-left: 56px;
+            margin-right: 56px;
+        }
+
+        --paper-card-actions: {
+          padding: 1em;
+          margin-left: 56px;
+          margin-right: 56px;
+
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+
+        paper-card {
+          @apply(--layout-vertical);
+        }
+      }
+    </style>
+
+    <script>
+
+      window.onload = ((e) => {
+        'use strict';
+
+        let pages = document.querySelector('iron-pages');
+        let tabs = document.querySelector('paper-tabs');
+
+        tabs.addEventListener('iron-select', () => {
+           pages.selected = tabs.selected;
+        });
+      });
+    </script>
+
   </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">MeaningfulJS</h1>
-        <p class="header">[insert hip logo here]</p>
+  <body class="fullbleed vertical layout">
+    <paper-scroll-header-panel class="flex" fixed="true">
 
-        <ul>
-          <li><a class="buttons github" href="https://github.com/ThirstyHead/generator-meaningfuljs">Install Generator</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/ThirstyHead/meaningfuljs/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/ThirstyHead/meaningfuljs/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/ThirstyHead/meaningfuljs">View On GitHub</a></li>
-        </ul>
-
-        <p class="header">
-            MeaningfulJS is written and maintained by <a href="http://thirstyhead.com/contact.html"
-              class="header name">Scott Davis</a>, author of the IBM developerWorks article series <a href="http://www.ibm.com/developerworks/library/wa-mean1/index.html" class="header name">Mastering MEAN</a> and the O'Reilly video <a href="http://shop.oreilly.com/product/0636920039495.do" class="header name">Architecture of the MEAN Stack</a>.
-        </p>
-      </header>
-
-      <p>&nbsp;</p>
-
-      <section>
-        <h2><a id="introduction"
-               class="anchor"
-               href="#introduction">Introduction</a></h2>
-
-        <p>MeaningfulJS is a simple, sane MEAN stack.</p>
-
-        <p>If you've never worked with the <a href="https://en.wikipedia.org/wiki/MEAN_(software_bundle)">MEAN</a> stack before, MeaningfulJS is an integrated example of what you can do with <a href="https://www.mongodb.org/">MongoDB</a>, <a href="http://expressjs.com/">Express</a>, <a href="https://angularjs.org/">AngularJS</a>, and <a href="https://nodejs.org/">NodeJS</a>.</p>
-
-        <p>If you're an experienced MEAN stack developer, MeaningfulJS is a springboard for you to quickly customize and refine your way to production.</p>
-
-        <h2><a id="prerequisites"
-               class="anchor"
-               href="#prerequisites">Prerequisites</a></h2>
-
-        <p>Here's what you need to have installed before getting started with MeaningfulJS:</p>
-        <ul>
-            <li><a href="https://nodejs.org/download/">NodeJS</a>: You'll need this to run the build scripts and the included Express web server</li>
-            <li><a href="https://www.mongodb.org/downloads">MongoDB</a>: You can mock out the persistence for a while in "development" mode, but you'll eventually need to save your user data somewhere in production</li>
-            <li><a href="http://bower.io/#install-bower">Bower</a>: Bower manages your client-side dependencies in <code>bower.json</code>; NPM (included with NodeJS) manages your server-side dependencies in <code>package.json</code></li>
-            <li><a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp</a>: Your build script <code>gulpfile.js</code> is written in Gulp</li>
-        </ul>
-
-        <h2><a id="getting-started"
-               class="anchor"
-               href="#getting-started">Getting Started</a></h2>
-
-        <p>The best way to get started with MeaningfulJS is to <a href="https://github.com/thirstyhead/generator-meaningfuljs">install the Yeoman generator</a> and let it guide your way. Once it's installed, spinning up a new MEAN app is as simple as:</p>
-
-<code><pre>
-$ mkdir myapp
-$ cd myapp
-$ yo meaningfuljs
-</pre></code>
-
-        <p>You can, of course, simply download a <a href="https://github.com/ThirstyHead/meaningfuljs/zipball/master">zipfile</a>, a <a href="https://github.com/ThirstyHead/meaningfuljs/tarball/master">tarball</a>, or clone the <a href="https://github.com/ThirstyHead/meaningfuljs">GitHub repo</a> and muscle through it on your own. If you choose this route, don't forget to install the server-side and client-side dependencies locally by typing:</p>
-
-<code><pre>
-$ npm install
-</pre></code>
+      <!-- Toolbar -->
+      <paper-toolbar class="medium-tall">
+        <span class="title">MeaningfulJS: &nbsp;<i>a simple, sane MEAN stack</i>  </span>
+        <paper-tabs selected="0" class="middle">
+          <iron-icon icon=""></iron-icon>
+          <iron-icon icon=""></iron-icon>
+          <paper-tab>Angular 2</paper-tab>
+          <paper-tab>Angular 1</paper-tab>
+        </paper-tabs>
+      </paper-toolbar>
 
 
-        <h2><a id="build-and-run"
-               class="anchor"
-               href="#build-and-run">Build and Run</a></h2>
 
-        <p>The <code>gulpfile.js</code> build script comes with several familiar tasks, including <code>clean</code>, <code>build</code>, and <code>run</code>. The easiest way to start your MEAN app and view it in a browser is to type:</p>
+      <!-- Main -->
+      <section class="main-content">
 
-<code><pre>
-$ gulp clean build
-$ gulp run
-</pre></code>
+        <iron-pages selected="0">
+          <!-- Angular 2 page -->
+          <div>
+            <paper-card>
+              <div class="card-content">
+                <section class="card-header-actions">
+                    <span>
+                      <a href="https://github.com/ThirstyHead/generator-mjs">
+                        <paper-button raised>
+                          <iron-icon icon="social:public"></iron-icon> Install Angular 2 Generator
+                        </paper-button>
+                      </a>
+                    </span>
+                    <span>
+                      <a href="https://github.com/ThirstyHead/meaningfuljs2">
+                        <paper-button raised>
+                          <iron-icon icon="social:public"></iron-icon> Install Angular 2 Seed Project
+                        </paper-button>
+                      </a>
+                    </span>
+                </section>
 
-        <p>If you type <code>gulp</code> without a task, you'll be presented with a list of available tasks:</p>
-<code><pre>
-$ gulp
-Using gulpfile ~/myapp/gulpfile.js
+                <section>
+                  <h2>Introduction</h2>
+                  <p>If you've never worked with the <a href="https://en.wikipedia.org/wiki/MEAN_(software_bundle)">MEAN</a> stack before, MeaningfulJS<sup>2</sup> is an integrated example of what you can do with <a href="https://www.mongodb.org/">MongoDB</a>, <a href="http://expressjs.com/">Express</a>, <a href="https://angular.io/">Angular 2</a>, and <a href="https://nodejs.org/">NodeJS</a>.</p>
 
-Usage
-  gulp [TASK] [OPTIONS...]
+                  <p>If you're an experienced MEAN stack developer, MeaningfulJS<sup>2</sup> is a springboard for you to quickly customize and refine your way to production.</p>
+                </section>
 
-Available tasks
-  build    Builds runnable website (dev-mode)
-  clean    Deletes generated artifacts
-  default  *** Default task ***
-  dist     Builds production website (prod-mode)
-  help     Display this help text.
-  run      Runs website (dev-mode)
-</pre></code>
+                <section>
+                  <h2>New to Angular 2?</h2>
+
+                  <p>
+                    If you want an easy way to get started with Angular2, this is a great place to begin. Using MeaningfulJS<sup>2</sup> will allow you to focus on learning the framework without having to worry about setting up your environment, dealing with dependencies, writing your own build script, etc.
+                  </p>
+
+                  <p>
+                    The <a href="https://angular.io/docs/ts/latest/quickstart.html">tutorials written by the Angular team</a> (using TypeScript) are really quite nice. Here are <a href="https://github.com/ThirstyHead/angulario-examples-es6">the same Angular 2 tutorials written in JavaScript / ES6</a>.
+                  </p>
+
+                  <p>
+                    MeaningfulJS<sup>2</sup> currently uses <a href="http://es6-features.org/">ECMAScript 2015, 6th edition</a> and <a href="https://babeljs.io/">Babel</a>.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>Prerequisites</h2>
+                  <p>Here's what you need to have installed before getting started with MeaningfulJS<sup>2</sup>:</p>
+                  <ul>
+                      <li><a href="https://nodejs.org/download/">NodeJS</a>: You'll need this to run the build scripts and the included Express web server</li>
+                      <li><a href="https://www.mongodb.org/downloads">MongoDB</a>: You can mock out the persistence for a while in "development" mode, but you'll eventually need to save your user data somewhere in production</li>
+                      <li><a href="https://www.npmjs.com/package/jspm">JSPM</a>: JSPM (JavaScript Package Manager) manages your client-side dependencies in <code>config.js</code>; NPM (included with NodeJS) manages your server-side dependencies in <code>package.json</code></li>
+                      <li><a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp</a>: Your build script <code>gulpfile.js</code> is written in Gulp</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Getting Started</h2>
+
+                  <p>The best way to get started with MeaningfulJS<sup>2</sup> is to <a href="https://github.com/thirstyhead/generator-mjs">install the Yeoman generator</a> and let it guide your way. Once it's installed, spinning up a new MEAN app is as simple as:</p>
+
+                  <code><pre>
+  $ mkdir myapp
+  $ cd myapp
+  $ yo mjs
+                  </pre></code>
+
+                  <p>You can, of course, simply clone the <a href="https://github.com/ThirstyHead/meaningfuljs2">GitHub repo</a> and muscle through it on your own. If you choose this route, don't forget to install the server-side and client-side dependencies locally by typing:</p>
+
+                  <code><pre>
+  $ npm install
+                  </pre></code>
+              </section>
+
+              <section>
+                <h2>Build and Run</h2>
+
+                <p>The <code>gulpfile.js</code> build script comes with several familiar tasks, including <code>clean</code>, <code>build</code>, and <code>run</code>. The easiest way to start your MEAN app and view it in a browser is to type:</p>
+
+                <code><pre>
+  $ gulp clean build
+  $ gulp run
+                </pre></code>
+
+                <p>If you type <code>gulp</code> without a task, you'll be presented with a list of available tasks:</p>
+
+                <code><pre>
+  $ gulp
+  Using gulpfile ~/myapp/gulpfile.js
+
+  Usage
+    gulp [TASK] [OPTIONS...]
+
+  Available tasks
+    build    Builds runnable website (dev-mode)
+    clean    Deletes generated artifacts
+    default  *** Default task ***
+    dist     Builds production website (prod-mode)
+    help     Display this help text.
+    run      Runs website (dev-mode)
+                </pre></code>
+              </section>
+
+              </div>
+            </paper-card>
+          </div>
+          <!-- end Angular 2 page -->
 
 
-        <h2><a id="add-a-new-component"
-               class="anchor"
-               href="#add-a-new-component">Add a New Component</a></h2>
-
-        <p>Once your application is scaffolded out, you can easily add a new component by typing:</p>
-
-<code><pre>
-$ yo meaningfuljs:component
-</pre></code>
 
 
+
+          <!-- Angular 1 page -->
+          <div>
+            <paper-card>
+              <div class="card-content">
+                <section class="card-header-actions">
+                    <span>
+                      <a href="https://github.com/ThirstyHead/generator-meaningfuljs">
+                        <paper-button raised>
+                          <iron-icon icon="social:public"></iron-icon> Install Angular 1 Generator
+                        </paper-button>
+                      </a>
+                    </span>
+                    <span>
+                      <a href="https://github.com/ThirstyHead/meaningfuljs">
+                        <paper-button raised>
+                          <iron-icon icon="social:public"></iron-icon> Install Angular 1 Seed Project
+                        </paper-button>
+                      </a>
+                    </span>
+                </section>
+
+                <section>
+                  <p class="coverart">
+                  <a href="http://shop.oreilly.com/product/0636920039495.do#">
+                  <img src="img/architectureOfTheMEANStack-badge.jpg" alt="Architecture of the MEAN Stack" title="Architecture of the MEAN Stack" />
+                  </a>
+                  </p>
+
+
+                  <h2>Introduction</h2>
+                  <p>If you've never worked with the <a href="https://en.wikipedia.org/wiki/MEAN_(software_bundle)">MEAN</a> stack before, MeaningfulJS is an integrated example of what you can do with <a href="https://www.mongodb.org/">MongoDB</a>, <a href="http://expressjs.com/">Express</a>, <a href="https://angularjs.org/">AngularJS</a>, and <a href="https://nodejs.org/">NodeJS</a>.</p>
+
+                  <p>If you're an experienced MEAN stack developer, MeaningfulJS is a springboard for you to quickly customize and refine your way to production.</p>
+                </section>
+
+                <section>
+                  <h2>Prerequisites</h2>
+                  <p>Here's what you need to have installed before getting started with MeaningfulJS:</p>
+                  <ul>
+                      <li><a href="https://nodejs.org/download/">NodeJS</a>: You'll need this to run the build scripts and the included Express web server</li>
+                      <li><a href="https://www.mongodb.org/downloads">MongoDB</a>: You can mock out the persistence for a while in "development" mode, but you'll eventually need to save your user data somewhere in production</li>
+                      <li><a href="http://bower.io/#install-bower">Bower</a>: Bower manages your client-side dependencies in <code>bower.json</code>; NPM (included with NodeJS) manages your server-side dependencies in <code>package.json</code></li>
+                      <li><a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp</a>: Your build script <code>gulpfile.js</code> is written in Gulp</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Getting Started</h2>
+
+                  <p>The best way to get started with MeaningfulJS is to <a href="https://github.com/thirstyhead/generator-meaningfuljs">install the Yeoman generator</a> and let it guide your way. Once it's installed, spinning up a new MEAN app is as simple as:</p>
+
+                  <code><pre>
+  $ mkdir myapp
+  $ cd myapp
+  $ yo meaningfuljs
+                  </pre></code>
+
+                  <p>You can, of course, simply clone the <a href="https://github.com/ThirstyHead/meaningfuljs">GitHub repo</a> and muscle through it on your own. If you choose this route, don't forget to install the server-side and client-side dependencies locally by typing:</p>
+
+                  <code><pre>
+  $ npm install
+                  </pre></code>
+              </section>
+
+              <section>
+                <h2>Build and Run</h2>
+
+                <p>The <code>gulpfile.js</code> build script comes with several familiar tasks, including <code>clean</code>, <code>build</code>, and <code>run</code>. The easiest way to start your MEAN app and view it in a browser is to type:</p>
+
+                <code><pre>
+  $ gulp clean build
+  $ gulp run
+                </pre></code>
+
+                <p>If you type <code>gulp</code> without a task, you'll be presented with a list of available tasks:</p>
+
+                <code><pre>
+  $ gulp
+  Using gulpfile ~/myapp/gulpfile.js
+
+  Usage
+    gulp [TASK] [OPTIONS...]
+
+  Available tasks
+    build    Builds runnable website (dev-mode)
+    clean    Deletes generated artifacts
+    default  *** Default task ***
+    dist     Builds production website (prod-mode)
+    help     Display this help text.
+    run      Runs website (dev-mode)
+                </pre></code>
+              </section>
+
+              <section>
+                <h2>Add a New Component</h2>
+
+                <p>Once your application is scaffolded out, you can easily add a new component by typing:</p>
+
+                <code><pre>
+  $ yo meaningfuljs:component
+                </pre></code>
+              </section>
+
+              </div>
+            </paper-card>
+          </div>
+          <!-- end Angular 1 page -->
+        </iron-pages>
+
+
+
+
+
+        <footer class="page">
+          <section>
+            Copyright &copy; 2016, <a href="http://thirstyhead.com">ThirstyHead.com</a>
+          </section>
+
+          <section>
+              MeaningfulJS is written and maintained by
+              <a href="http://thirstyhead.com/contact.html">Scott Davis</a>,
+              author of the IBM developerWorks article series
+              <a href="http://www.ibm.com/developerworks/library/wa-mean1/index.html">Mastering MEAN</a>
+              and the O'Reilly video <a href="http://shop.oreilly.com/product/0636920039495.do">Architecture of the MEAN Stack</a>.
+          </section>
+
+          <section>
+            Powered by: <br><a href="https://www.polymer-project.org/1.0/"><img src="img/polymer-badge.png" alt="Polymer 1.0" title="Polymer 1.0"/></a>
+          </section>
+        </footer>
 
       </section>
+    </paper-scroll-header-panel>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		          <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-66629571-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+
+
+
+
 
   </body>
 </html>
